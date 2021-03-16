@@ -2,6 +2,9 @@
 
 @section('content')
 	<div class="tableDiv">
+        	@if(session('msg'))
+        	 <p class="text-success">{{ session('msg') }}</p>
+        	@endif			
 		<table class="table table-striped">
 			<thead>
 				<tr>

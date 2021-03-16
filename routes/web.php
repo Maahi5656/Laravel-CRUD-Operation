@@ -39,12 +39,13 @@ Route::post('/edit/{id}', [FormController::class, 'update']);
 Route::get('/delete/{id}', [FormController::class, 'delete']);
 
 Auth::routes(['verify' => true]);
-
+ 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //Brand
 Route::get('/brand/all', [BrandController::class, 'index']);
+
 Route::get('/brand', [BrandController::class, 'create']);
 Route::post('/brand', [BrandController::class, 'insert'])->name('brand.insert');
 
@@ -54,8 +55,19 @@ Route::post('/brand/edit/{id}', [BrandController::class, 'update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'delete']);
 
 //Category
-Route::get('/category', [CategoryController::class, 'index']);
+Route::get('/category/all', [CategoryController::class, 'index']);
 
+Route::get('/category', [CategoryController::class, 'create']);
+Route::post('/category', [CategoryController::class, 'insert'])->name('category.insert');
+
+Route::get('/category/edit/{id}', [CategoryController::class, 'edit']);
+Route::post('/category/edit/{id}', [CategoryController::class, 'update']);
+
+Route::get('/category/delete/{id}', [CategoryController::class, 'delete']);
 
 //Product
-Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/all', [ProductController::class, 'index']);
+Route::get('/product', [ProductController::class, 'create']);
+
+Route::get('/product/edit/{id}', [ProductController::class, 'edit']);
+Route::post('/product/edit/{id}', [ProductController::class, 'update']);
